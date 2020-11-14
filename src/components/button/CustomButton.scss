@@ -1,0 +1,34 @@
+.custom-button {
+    min-width: 120px;
+    margin: 10px;
+    // width: auto;
+    height: 50px;
+    letter-spacing: 0.5px;
+    line-height: 50px;
+    padding: 0 20px 0 20px;
+    font-size: 13px;
+    background-color: #1E881C;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    border: none;
+    transition: cubic-bezier(0.19, 1, 0.22, 1) 2s ;
+    cursor: pointer;
+
+    &:hover {
+        background-color: white;
+        color: #1E881C;
+        border: 1px solid #1E881C;
+    }
+}
+
+.isGoogle{
+    background-color: #4285f4;
+    color: white;
+
+    &:hover {
+        background-color: white;
+        color: #4285f4;
+        border: 1px solid #4285f4;
+    }
+}
