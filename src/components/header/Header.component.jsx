@@ -1,12 +1,13 @@
 import React from 'react'
 import './Header.conponent.scss'
 import CartIcon from '../cart-icon/CartIcon'
+import CardDropDown from '../cart/CardDropDown'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../logo.svg'
 import { auth } from '../../firebase/firebase.utils'
 import {connect} from 'react-redux'
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, hidden }) => {
     return (
         <div className="header">
             <div>
@@ -41,12 +42,14 @@ const Header = ({ currentUser }) => {
                 }
 
             </div>
+            { !hidden && <CardDropDown />}
         </div>
     )
 }
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = ({user: { currentUser }, cart: { hidden }}) => ({
+  currentUser,
+  hidden
 })
 
 export default connect(mapStateToProps)(Header)
