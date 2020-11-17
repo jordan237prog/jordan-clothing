@@ -1,5 +1,6 @@
 import React from 'react'
 import './Header.conponent.scss'
+import CartIcon from '../cart-icon/CartIcon'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../logo.svg'
 import { auth } from '../../firebase/firebase.utils'
@@ -20,6 +21,8 @@ const Header = ({ currentUser }) => {
                 <Link className="option" to="/Shop">
                     CONTACT 
                 </Link>
+
+                <CartIcon />
 
                 { currentUser  ? 
                     (<div 
