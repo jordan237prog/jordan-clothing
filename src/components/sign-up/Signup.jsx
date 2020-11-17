@@ -58,7 +58,7 @@ export default class Signup extends Component {
         return (
             <div className="sign-in">
                 <h2 className="haveAccount">Don't have an account?</h2>
-                <span className="title">Create account Here</span>
+                <span className="title">Create your account here</span>
 
                 <form onSubmit={this.handleSubmit}>
                     <FormInput 

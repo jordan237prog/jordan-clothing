@@ -21,7 +21,7 @@ export class SignIn extends Component {
         const { email, password } = this.state
 
         try {
-            console.log(email, password)
+            // console.log(email, password)
             await auth.signInWithEmailAndPassword(email, password)
             
             this.setState({email: '', password: ''})
@@ -44,7 +44,7 @@ export class SignIn extends Component {
         return (
             <div className="sign-in">
                 <h2 className="haveAccount">Already have an account?</h2>
-                <span className="title">Signin with you email and password</span>
+                <span className="title">Sign in with your email and password</span>
 
                 <form onSubmit={this.handleSubmit}>
                     <FormInput 
