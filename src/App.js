@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import Homepage from "./pages/homepage/Homepage.component"
 import ShopPage from "./pages/shop/Shop.component"
 import Header from "./components/header/Header.component"
@@ -49,14 +49,26 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/shop" component={ShopPage} />
-          <Route path="/signin" component={SignInSignUp} />
+          <Route exact path="/signin" 
+          render={
+            ()=> 
+              this.props.currentUser?(<Redirect to='/' />)
+              :(<SignInSignUp/>)
+          } 
+          />
         </Switch>
       </div>
     );
   }
   
 }
+//for this component to get access to the state props from redux store we must do this ↙
+const mapStateToProps = ({user}) => ({
+  currentUser: user.currentUser
+})
+
+//To trigger an action using redux we must do this ↙, that is to change the value of a state from the store
 const mapDispatchProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 })
-export default connect(null, mapDispatchProps) (App);
+export default connect(mapStateToProps, mapDispatchProps) (App);
